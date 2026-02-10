@@ -2,21 +2,18 @@ const express = require("express");
 
 const app = express();
 
-app.use("/home/2",(req, res)=>{
-    res.send("Hello from hoooooooooome 2222");
-});
-app.use("/home",(req, res)=>{
-    res.send("Hello from hoooooooooome");
-});
-app.use("/testing",(req, res)=>{
-    res.send("Hello from testing page");
-});
-app.use("/testing/users",(req, res)=>{
-    res.send("Hello from testing users");
-});
-app.use("/",(req, res)=>{
-    res.send("Hello from 3000 bhai");
-});
+
+app.get("/user", (req, res)=>{
+    res.send({firstName: "Rohit", lastName:"Kashiwale"});
+})
+
+app.post("/user", (req, res)=>{
+    res.send("Save data to a database");
+})
+
+app.delete("/user", (req, res)=>{
+    res.send("user deleted successfully");
+})
 
 app.listen(3000, ()=>{
     console.log("The server is running on a port 3000");
